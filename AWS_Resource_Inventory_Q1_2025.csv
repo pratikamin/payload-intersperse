@@ -1,0 +1,28 @@
+Resource ID,Resource Type,Account ID,Account Name,Region,Resource Name,VPC ID,Subnet ID,State,Tags - Environment,Tags - Owner,Tags - CostCenter,Tags - DataClassification,Encryption Enabled,Public Access,Creation Date,Last Modified,Compliance Status,Notes
+i-0a1b2c3d4e5f67890,EC2 Instance,456789012345,prod,us-east-1,web-app-prod-01,vpc-0a1b2c3d,subnet-0a1b2c3d,running,production,platform-team,CC-1001,Confidential,Yes,No,2024-06-15,2025-03-28,COMPLIANT,
+i-0b2c3d4e5f678901,EC2 Instance,456789012345,prod,us-east-1,web-app-prod-02,vpc-0a1b2c3d,subnet-0b2c3d4e,running,production,platform-team,CC-1001,Confidential,Yes,No,2024-06-15,2025-03-28,COMPLIANT,
+i-0c3d4e5f67890123,EC2 Instance,456789012345,prod,us-east-1,api-app-prod-01,vpc-0a1b2c3d,subnet-0c3d4e5f,running,production,api-team,CC-1001,Restricted,Yes,No,2024-07-01,2025-03-30,COMPLIANT,
+i-0d4e5f6789012345,EC2 Instance,456789012345,prod,us-east-1,api-app-prod-02,vpc-0a1b2c3d,subnet-0c3d4e5f,running,production,api-team,CC-1001,Restricted,Yes,No,2024-07-01,2025-03-30,COMPLIANT,
+i-0e5f678901234567,EC2 Instance,456789012345,prod,us-east-1,batch-worker-01,vpc-0a1b2c3d,subnet-0d4e5f60,running,production,data-team,CC-1002,Internal,Yes,No,2024-08-10,2025-02-14,COMPLIANT,
+i-0f6789012345678a,EC2 Instance,567890123456,staging,us-east-1,web-app-stg-01,vpc-0b2c3d4e,subnet-0e5f6071,running,staging,platform-team,CC-1001,Internal,Yes,No,2024-09-01,2025-03-15,COMPLIANT,
+db-prod-mysql-primary,RDS DB Instance,456789012345,prod,us-east-1,acme-prod-mysql-primary,vpc-0a1b2c3d,subnet-group-data,available,production,dba-team,CC-1001,Restricted,Yes,No,2024-05-20,2025-04-01,COMPLIANT,Multi-AZ enabled
+db-prod-mysql-replica,RDS DB Instance,456789012345,prod,us-west-2,acme-prod-mysql-replica,vpc-0c3d4e5f,subnet-group-dr,available,production,dba-team,CC-1001,Restricted,Yes,No,2024-05-20,2025-04-01,COMPLIANT,Cross-region read replica
+db-prod-postgres,RDS DB Instance,456789012345,prod,us-east-1,acme-prod-postgres,vpc-0a1b2c3d,subnet-group-data,available,production,api-team,CC-1001,Restricted,Yes,No,2024-06-01,2025-03-25,COMPLIANT,
+db-stg-mysql,RDS DB Instance,567890123456,staging,us-east-1,acme-stg-mysql,vpc-0b2c3d4e,subnet-group-stg,available,staging,dba-team,CC-1001,Internal,Yes,No,2024-09-01,2025-03-01,COMPLIANT,
+acme-prod-assets,S3 Bucket,456789012345,prod,us-east-1,acme-prod-assets,N/A,N/A,active,production,platform-team,CC-1001,Internal,Yes,No,2023-01-10,2025-03-31,COMPLIANT,Public access block enabled
+acme-prod-logs,S3 Bucket,345678901234,log-archive,us-east-1,acme-prod-logs,N/A,N/A,active,production,security-team,CC-1000,Restricted,Yes,No,2023-01-10,2025-04-01,COMPLIANT,Object Lock COMPLIANCE mode 7yr
+acme-prod-backups,S3 Bucket,456789012345,prod,us-east-1,acme-prod-backups,N/A,N/A,active,production,dba-team,CC-1001,Restricted,Yes,No,2023-03-15,2025-04-01,COMPLIANT,Versioning enabled
+acme-cloudtrail-logs,S3 Bucket,345678901234,log-archive,us-east-1,acme-cloudtrail-logs,N/A,N/A,active,production,security-team,CC-1000,Restricted,Yes,No,2023-01-10,2025-04-01,COMPLIANT,Object Lock enabled - Org Trail target
+acme-stg-artifacts,S3 Bucket,567890123456,staging,us-east-1,acme-stg-artifacts,N/A,N/A,active,staging,platform-team,CC-1001,Internal,Yes,No,2024-01-15,2025-03-10,COMPLIANT,
+cluster-prod-api,EKS Cluster,456789012345,prod,us-east-1,acme-prod-api-cluster,vpc-0a1b2c3d,N/A,ACTIVE,production,platform-team,CC-1001,Restricted,Yes,No,2024-03-01,2025-03-20,COMPLIANT,K8s 1.29 - secrets encryption enabled
+cache-prod-redis,ElastiCache Cluster,456789012345,prod,us-east-1,acme-prod-redis,vpc-0a1b2c3d,subnet-group-data,available,production,api-team,CC-1001,Internal,Yes,No,2024-06-15,2025-02-28,COMPLIANT,Redis 7.0 - at-rest encryption enabled
+alb-prod-external,Load Balancer (ALB),456789012345,prod,us-east-1,acme-prod-external-alb,vpc-0a1b2c3d,N/A,active,production,platform-team,CC-1001,Public,Yes,Yes,2024-06-10,2025-03-25,COMPLIANT,TLS 1.2+ enforced; WAF attached
+alb-prod-internal,Load Balancer (ALB),456789012345,prod,us-east-1,acme-prod-internal-alb,vpc-0a1b2c3d,N/A,active,production,platform-team,CC-1001,Internal,Yes,No,2024-06-10,2025-03-25,COMPLIANT,
+lambda-data-processor,Lambda Function,456789012345,prod,us-east-1,acme-data-processor,vpc-0a1b2c3d,subnet-0c3d4e5f,Active,production,data-team,CC-1002,Confidential,Yes,No,2024-08-01,2025-03-15,COMPLIANT,VPC-attached; env vars encrypted via KMS
+lambda-auth-webhook,Lambda Function,456789012345,prod,us-east-1,acme-auth-webhook,N/A,N/A,Active,production,api-team,CC-1001,Restricted,Yes,No,2024-09-15,2025-03-20,COMPLIANT,
+vol-0a1b2c3d4e5f,EBS Volume,456789012345,prod,us-east-1,web-app-prod-01-root,vpc-0a1b2c3d,us-east-1a,in-use,production,platform-team,CC-1001,Confidential,Yes,No,2024-06-15,2025-03-28,COMPLIANT,
+key-mrk-abc123,KMS CMK,456789012345,prod,us-east-1,acme-prod-rds-key,N/A,N/A,Enabled,production,security-team,CC-1000,N/A,N/A,N/A,2023-01-10,2025-04-01,COMPLIANT,Annual key rotation enabled
+key-mrk-def456,KMS CMK,456789012345,prod,us-east-1,acme-prod-s3-key,N/A,N/A,Enabled,production,security-team,CC-1000,N/A,N/A,N/A,2023-01-10,2025-04-01,COMPLIANT,Annual key rotation enabled
+sg-web-prod,Security Group,456789012345,prod,us-east-1,sg-web-tier-prod,vpc-0a1b2c3d,N/A,N/A,production,platform-team,CC-1001,N/A,N/A,No,2024-06-10,2025-01-15,COMPLIANT,Inbound: 443 from ALB only
+sg-app-prod,Security Group,456789012345,prod,us-east-1,sg-app-tier-prod,vpc-0a1b2c3d,N/A,N/A,production,platform-team,CC-1001,N/A,N/A,No,2024-06-10,2025-01-15,COMPLIANT,Inbound: 8080 from web-sg only
+sg-data-prod,Security Group,456789012345,prod,us-east-1,sg-data-tier-prod,vpc-0a1b2c3d,N/A,N/A,production,dba-team,CC-1001,N/A,N/A,No,2024-06-10,2025-01-15,COMPLIANT,Inbound: 3306/5432 from app-sg only
