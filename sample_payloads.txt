@@ -1,5 +1,11 @@
 Unauthorised login attempt detected from external IP
+
 Sensitive file accessed outside business hours
+
 Unexpected outbound connection to unknown endpoint
+
 MFA bypass policy exception granted temporarily
+
 Security group rule opened port 22 to 0.0.0.0/0
+This rule was opened during an emergency change window.
+Remediation is tracked under ticket INC-4821.

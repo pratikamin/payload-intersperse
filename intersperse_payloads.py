@@ -85,17 +85,23 @@ def parse_args():
 # ---------------------------------------------------------------------------
 
 def load_payload_file(path: str) -> List[str]:
-    """Load a plain text file into a list of non-empty lines."""
+    """Load a plain text file as a list of payloads.
+
+    Blocks of text separated by one or more blank lines are treated as
+    individual payload entries, so a file with no blank lines is a single
+    payload regardless of how many lines it contains.
+    """
     with open(path, encoding="utf-8") as fh:
-        lines = [line.rstrip("\n") for line in fh if line.strip()]
-    return lines
+        content = fh.read()
+
+    blocks = [b.strip() for b in content.split("\n\n") if b.strip()]
+    return blocks
 
 
-def pick_payloads(lines: List[str], count: Optional[int], rng: random.Random) -> List[str]:
-    """Choose *count* payload lines (with replacement) to inject."""
-    n = count if count is not None else rng.randint(3, min(10, len(lines)))
-    n = min(n, len(lines))
-    return rng.choices(lines, k=n)
+def pick_payloads(payloads: List[str], count: Optional[int], rng: random.Random) -> List[str]:
+    """Choose *count* payload entries (with replacement) to inject."""
+    n = count if count is not None else rng.randint(3, 10)
+    return rng.choices(payloads, k=n)
 
 
 # ---------------------------------------------------------------------------
