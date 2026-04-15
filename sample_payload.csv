@@ -1,0 +1,6 @@
+payload_id,category,description,severity,notes
+P-001,auth,Unauthorised login attempt detected from external IP,HIGH,Reviewed by SOC
+P-002,data,Sensitive file accessed outside business hours,MEDIUM,Flagged for review
+P-003,network,Unexpected outbound connection to unknown endpoint,HIGH,Under investigation
+P-004,compliance,MFA bypass policy exception granted temporarily,LOW,Approved by CISO
+P-005,config,Security group rule opened port 22 to 0.0.0.0/0,CRITICAL,Remediated within SLA
